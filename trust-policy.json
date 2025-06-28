@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::977099019525:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/F30EBE15FE77A7E334FB44EBDC65B248"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.ap-south-1.amazonaws.com/id/F30EBE15FE77A7E334FB44EBDC65B248:sub": "system:serviceaccount:amazon-cloudwatch:fluent-bit"
+        }
+      }
+    }
+  ]
+}
