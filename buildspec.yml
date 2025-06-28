@@ -2,10 +2,8 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      docker: 20
     commands:
-      - echo Installing source dependencies...
+      - echo Installing dependencies...
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -14,10 +12,10 @@ phases:
       - IMAGE_TAG=latest
   build:
     commands:
-      - echo Building the Docker image...
+      - echo Building Docker image...
       - docker build -t brain-task-app .
       - docker tag brain-task-app:latest $REPOSITORY_URI:$IMAGE_TAG
-      - echo Pushing the Docker image to ECR...
+      - echo Pushing Docker image to ECR...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
