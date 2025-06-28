@@ -1,0 +1,10 @@
+version: 0.0
+Resources:
+  - myApp:
+      Type: Kubernetes::Manifest
+      Properties:
+        ClusterName: brain-task-cluster
+        ManifestPaths:
+          - k8s/deployment.yaml
+          - k8s/service.yaml
+
